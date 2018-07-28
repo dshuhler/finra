@@ -28,4 +28,12 @@ public class CreditCardPayment {
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
+
+    @Override
+    public String toString() {
+        return "CreditCardPayment{" +
+                "cardNumber='" + cardNumber + '\'' +
+                ", amount=" + amount +
+                '}';
+    }
 }

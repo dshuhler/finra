@@ -15,7 +15,7 @@ import java.util.Optional;
 @RestController
 public class OrderController {
 
-    Logger log = LoggerFactory.getLogger(OrderController.class);
+    private Logger log = LoggerFactory.getLogger(OrderController.class);
 
     @Autowired
     ProductInventoryRepo productInventoryRepo;

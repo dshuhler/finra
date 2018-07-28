@@ -21,9 +21,10 @@ public class ProductInventory {
     public ProductInventory() {
     }
 
-    public ProductInventory(String productId, int quantity) {
+    public ProductInventory(String productId, int quantity, BigDecimal price) {
         this.productId = productId;
         this.quantity = quantity;
+        this.price = price;
     }
 
     public long getId() {
