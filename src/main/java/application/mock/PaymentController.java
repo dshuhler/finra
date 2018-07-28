@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Random;
+
 @RestController
 public class PaymentController {
 
@@ -17,7 +19,9 @@ public class PaymentController {
 
         log.info("Mock payment service received payment: {}", payment);
 
-        return true;
+        //randomly succeed and fail for simulation purposes
+        Random rand = new Random();
+        return rand.nextBoolean();
     }
 
 }

@@ -1,7 +1,6 @@
 package application;
 
 import java.math.BigDecimal;
-import java.util.Currency;
 
 public class CreditCardPayment {
 
