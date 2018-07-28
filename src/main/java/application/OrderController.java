@@ -17,11 +17,6 @@ public class OrderController {
     @GetMapping("/hello")
     public String getGreeting() {
 
-        ProductInventory productInventory = new ProductInventory("AAA", 5);
-
-        productInventoryRepo.save(productInventory);
-
-
         CreditCardPayment payment = new CreditCardPayment("1234", BigDecimal.valueOf(123));
 
         RestTemplate restTemplate = new RestTemplate();
