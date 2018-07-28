@@ -1,4 +1,4 @@
-package application;
+package application.web;
 
 public class OrderDto {
     private String userId;

@@ -1,13 +1,13 @@
-package application;
+package application.web;
 
 import java.math.BigDecimal;
 
-public class CreditCardPayment {
+public class CreditCardPaymentDto {
 
     private String cardNumber;
     private BigDecimal amount;
 
-    public CreditCardPayment(String cardNumber, BigDecimal amount) {
+    public CreditCardPaymentDto(String cardNumber, BigDecimal amount) {
         this.cardNumber = cardNumber;
         this.amount = amount;
     }
@@ -30,7 +30,7 @@ public class CreditCardPayment {
 
     @Override
     public String toString() {
-        return "CreditCardPayment{" +
+        return "CreditCardPaymentDto{" +
                 "cardNumber='" + cardNumber + '\'' +
                 ", amount=" + amount +
                 '}';

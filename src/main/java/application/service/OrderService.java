@@ -1,5 +1,8 @@
-package application;
+package application.service;
 
+import application.model.ProductInventory;
+import application.model.ProductInventoryRepo;
+import application.web.CreditCardPaymentDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +37,7 @@ public class OrderService {
             return "No product in stock";
         }
 
-        CreditCardPayment payment = new CreditCardPayment(creditCardNumber, productInventory.getPrice());
+        CreditCardPaymentDto payment = new CreditCardPaymentDto(creditCardNumber, productInventory.getPrice());
 
         RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.postForObject("http://localhost:8080/payment", payment, String.class);
