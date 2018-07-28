@@ -18,13 +18,7 @@ public class Application {
 
     @EventListener(ApplicationReadyEvent.class)
     public void doSomethingAfterStartup() {
-
-        productInventoryRepo.save(new ProductInventory("A-1", 2));
-        productInventoryRepo.save(new ProductInventory("A-2", 20));
-        productInventoryRepo.save(new ProductInventory("A-3", 0));
-        productInventoryRepo.save(new ProductInventory("B-1", 200));
-        productInventoryRepo.save(new ProductInventory("B-2", 25));
-
-        System.out.println("hello world, I have just started up");
+        productInventoryRepo.save(new ProductInventory("A-1", 200));
+        productInventoryRepo.save(new ProductInventory("A-2", 0));
     }
 }

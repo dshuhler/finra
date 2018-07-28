@@ -2,4 +2,10 @@ package application;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface ProductInventoryRepo extends CrudRepository<ProductInventory, String> {}
+import java.util.Optional;
+
+public interface ProductInventoryRepo extends CrudRepository<ProductInventory, String> {
+
+    Optional<ProductInventory> findByProductId(String productId);
+
+}

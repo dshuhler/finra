@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 @RestController
 public class OrderController {
@@ -16,6 +17,10 @@ public class OrderController {
 
     @GetMapping("/hello")
     public String getGreeting() {
+
+        Optional<ProductInventory> maybe = productInventoryRepo.findByProductId("A-1");
+
+        System.out.println(maybe);
 
         CreditCardPayment payment = new CreditCardPayment("1234", BigDecimal.valueOf(123));
 
