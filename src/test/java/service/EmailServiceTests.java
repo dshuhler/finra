@@ -5,34 +5,35 @@ import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import javax.mail.MessagingException;
-
-import java.text.MessageFormat;
 
 import static org.mockito.Mockito.mock;
-
 
 public class EmailServiceTests {
 
     private JavaMailSender mockJavaMailSender = mock(JavaMailSender.class);
 
     @Test
-    public void sendsTemplateEmail() throws MessagingException {
+    public void sendsCorrectlyPopulatedTemplateEmail() {
 
         EmailService emailService = new EmailService(mockJavaMailSender);
 
         emailService.sendShippingEmail("X-5", "d_mcnabb");
+        Mockito.verify(mockJavaMailSender).send(buildTestSmm("X-5", "d_mcnabb"));
 
-        SimpleMailMessage testSsm = new SimpleMailMessage();
+        emailService.sendShippingEmail("A-53", "k_kolb");
+        Mockito.verify(mockJavaMailSender).send(buildTestSmm("A-53", "k_kolb"));
 
-        testSsm.setTo("shipping@finra.com");
-        testSsm.setFrom("orders@finra.com");
-        testSsm.setSubject("Order to ship");
-        testSsm.setText("Ship one unit of product: X-5 to user: d_mcnabb");
-
-        Mockito.verify(mockJavaMailSender).send(testSsm);
     }
 
 
+    private SimpleMailMessage buildTestSmm(String productId, String userId) {
+        SimpleMailMessage testSmm = new SimpleMailMessage();
+
+        testSmm.setTo("shipping@finra.com");
+        testSmm.setFrom("orders@finra.com");
+        testSmm.setSubject("Order to ship");
+        testSmm.setText("Ship one unit of product: " + productId + " to user: " + userId);
+        return testSmm;
+    }
 
 }
