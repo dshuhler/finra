@@ -14,8 +14,7 @@ public class PaymentController {
     @PostMapping("payment")
     public String helloGetter(@RequestBody CreditCardPayment payment) {
 
-        System.out.println(payment);
-        return "whatever";
+        return "Approved";
     }
 
 }

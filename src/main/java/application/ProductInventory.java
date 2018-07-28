@@ -3,6 +3,7 @@ package application;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 
 @Entity
 public class ProductInventory {
@@ -12,6 +13,10 @@ public class ProductInventory {
     private long id;
     private String productId;
     private int quantity;
+
+    //this should definitely be in a different table but putting it here for simplicity sake
+    private BigDecimal price;
+
 
     public ProductInventory() {
     }
@@ -43,5 +48,13 @@ public class ProductInventory {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 }
