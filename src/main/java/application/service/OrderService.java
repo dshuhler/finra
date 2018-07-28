@@ -14,11 +14,15 @@ import java.util.Optional;
 @Service
 public class OrderService {
 
+    private static Logger log = LoggerFactory.getLogger(OrderService.class);
+
+
+    private ProductInventoryRepo productInventoryRepo;
 
     @Autowired
-    ProductInventoryRepo productInventoryRepo;
-
-    private Logger log = LoggerFactory.getLogger(OrderService.class);
+    public OrderService(ProductInventoryRepo productInventoryRepo) {
+        this.productInventoryRepo = productInventoryRepo;
+    }
 
     public String executeOrder(String productId, String creditCardNumber) {
 
