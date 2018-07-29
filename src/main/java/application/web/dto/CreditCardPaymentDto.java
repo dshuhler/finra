@@ -1,4 +1,4 @@
-package application.web;
+package application.web.dto;
 
 import java.math.BigDecimal;
 
