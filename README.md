@@ -1,4 +1,4 @@
-####FINRA Programming Challenge
+#### FINRA Programming Challenge
 
 - To run:  `mvn spring-boot:run` will start the spring boot server on localhost:8080
 - You will need a SMTP server (I used FakeSMTP) or it will fail when sending emails.
