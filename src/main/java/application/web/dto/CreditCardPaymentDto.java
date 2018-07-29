@@ -1,6 +1,7 @@
 package application.web.dto;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class CreditCardPaymentDto {
 
@@ -34,5 +35,20 @@ public class CreditCardPaymentDto {
                 "cardNumber='" + cardNumber + '\'' +
                 ", amount=" + amount +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CreditCardPaymentDto that = (CreditCardPaymentDto) o;
+        return Objects.equals(cardNumber, that.cardNumber) &&
+                Objects.equals(amount, that.amount);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(cardNumber, amount);
     }
 }

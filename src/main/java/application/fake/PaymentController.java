@@ -1,4 +1,4 @@
-package application.mock;
+package application.fake;
 
 import application.web.dto.CreditCardPaymentDto;
 import org.slf4j.Logger;

@@ -2,11 +2,11 @@ package service;
 
 import application.service.EmailService;
 import org.junit.Test;
-import org.mockito.Mockito;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class EmailServiceTests {
 
@@ -18,11 +18,10 @@ public class EmailServiceTests {
         EmailService emailService = new EmailService(mockJavaMailSender);
 
         emailService.sendShippingEmail("X-5", "d_mcnabb");
-        Mockito.verify(mockJavaMailSender).send(buildTestSmm("X-5", "d_mcnabb"));
+        verify(mockJavaMailSender).send(buildTestSmm("X-5", "d_mcnabb"));
 
         emailService.sendShippingEmail("A-53", "k_kolb");
-        Mockito.verify(mockJavaMailSender).send(buildTestSmm("A-53", "k_kolb"));
-
+        verify(mockJavaMailSender).send(buildTestSmm("A-53", "k_kolb"));
     }
 
 
